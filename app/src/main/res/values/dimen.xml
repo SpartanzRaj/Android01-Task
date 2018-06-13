@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="view_padding_one">3dp</dimen>
+    <dimen name="view_padding_two">5dp</dimen>
+    <dimen name="view_padding_three">10dp</dimen>
+    <dimen name="view_padding_four">2dp</dimen>
+    <dimen name="view_margin_one">15dp</dimen>
+    <dimen name="view_margin_two">5dp</dimen>
+    <dimen name="view_margin_three">10dp</dimen>
+
+    <dimen name="cardview_elevation">5dp</dimen>
+    <dimen name="cardview_radius">5dp</dimen>
+    <dimen name="cardview_margin">7dp</dimen>
+
+
+
+    <dimen name="text_size_one">27sp</dimen>
+    <dimen name="text_size_two">24sp</dimen>
+    <dimen name="text_size_three">19sp</dimen>
+
+    <dimen name="banner_height">100dp</dimen>
+    <dimen name="reduced_banner_height">75dp</dimen>
+
+
+</resources>

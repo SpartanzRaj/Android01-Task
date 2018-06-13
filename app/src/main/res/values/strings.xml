@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android01-Task</string>
+    <string name="error_msg">Sorry,Something Went wrong. Please try after sometime</string>
+    <string name="screen_1_name">Question List</string>
+    <string name="screen_2_name">Details</string>
+    <string name="screen_3_name">Advertisement</string>
+    <string name="loading_msg">Please wait...</string>
+
+</resources>

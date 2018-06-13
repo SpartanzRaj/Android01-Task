@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/cardview_margin"
+    android:layout_marginLeft="@dimen/cardview_margin"
+    app:cardElevation="@dimen/cardview_elevation"
+    app:cardCornerRadius="@dimen/cardview_radius">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/reduced_banner_height"
+        android:src="@drawable/banner_add_src"
+        android:scaleType="fitXY"
+        android:id="@+id/banner_add"
+        />
+</android.support.v7.widget.CardView>

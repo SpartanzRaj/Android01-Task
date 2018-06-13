@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/question"
+        android:text="What is Stack?"
+        android:textColor="@color/colorTemp"
+        android:textSize="@dimen/text_size_one"
+        android:paddingStart="@dimen/view_padding_two"
+        android:paddingLeft="@dimen/view_padding_three"
+        android:paddingBottom="@dimen/view_padding_one"
+        android:paddingTop="@dimen/view_padding_three"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer"
+        android:layout_below="@id/question"
+        android:text="What is Stack?"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_size_two"
+        android:paddingStart="@dimen/view_padding_two"
+        android:paddingLeft="@dimen/view_padding_two"
+        android:paddingBottom="@dimen/view_padding_three"
+        android:paddingTop="@dimen/view_padding_four"
+        android:layout_marginLeft="@dimen/view_margin_one"
+        android:layout_marginRight="@dimen/view_margin_one"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/banner_height"
+        android:src="@drawable/banner_add_src"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/view_margin_two"
+        android:layout_marginRight="@dimen/view_margin_two"
+        android:layout_marginBottom="@dimen/view_margin_two"
+        android:id="@+id/banner_add"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
