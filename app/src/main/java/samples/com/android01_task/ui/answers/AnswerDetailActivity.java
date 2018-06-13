@@ -3,6 +3,7 @@ package samples.com.android01_task.ui.answers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,10 +28,7 @@ public class AnswerDetailActivity extends AppCompatActivity implements AnswerDet
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer_detail);
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.app_logo);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         clickedPosition=getIntent().getIntExtra("position",0);
         showAnswer=(TextView)findViewById(R.id.answer);
@@ -54,6 +52,17 @@ public class AnswerDetailActivity extends AppCompatActivity implements AnswerDet
 
         ProgressView.showProgress(this);
         mvpPresenter.startLoadRemoteData(clickedPosition);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home)
+        {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

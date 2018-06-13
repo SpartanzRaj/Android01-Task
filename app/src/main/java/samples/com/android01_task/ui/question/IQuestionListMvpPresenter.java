@@ -1,6 +1,9 @@
 package samples.com.android01_task.ui.question;
 
+import android.content.Context;
+
 public interface IQuestionListMvpPresenter  {
 
-    void startLoadRemoteData();
+    void startLoadRemoteData(Context context);
+
 }

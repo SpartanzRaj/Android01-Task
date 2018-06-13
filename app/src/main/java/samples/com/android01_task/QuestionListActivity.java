@@ -52,8 +52,16 @@ public class QuestionListActivity extends AppCompatActivity implements QuestionL
         questions.setAdapter(adapter);
         questions.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         questionListMvpPresenter = new QuestionListMvpPresenter(this);
-        ProgressView.showProgress(this);
-        questionListMvpPresenter.startLoadRemoteData();
+        //if (questionListMvpPresenter.checkNetworkIsConnection(this))
+       // {
+            ProgressView.showProgress(this);
+            questionListMvpPresenter.startLoadRemoteData(this);
+//        }
+//        else
+//        {
+//            Toast.makeText(this, "Please check the internet connectivity", Toast.LENGTH_SHORT).show();
+//        }
+
 
     }
 
@@ -72,6 +80,8 @@ public class QuestionListActivity extends AppCompatActivity implements QuestionL
 
                 if (data.get(position) instanceof Questions)
                 {
+                    Log.i("QuestionList","positopn "+position);
+                    Log.i("QuestionList","sub positopn "+(position-(position/3)));
                     Intent answerActivity = new Intent(QuestionListActivity.this, AnswerDetailActivity.class);
                     answerActivity.putExtra("position",position-(position/3));
                     startActivity(answerActivity);
@@ -96,6 +106,6 @@ public class QuestionListActivity extends AppCompatActivity implements QuestionL
     public void onError(String errorMsg) {
 
         ProgressView.dismissProgress();
-        Toast.makeText(this, R.string.error_msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
 }

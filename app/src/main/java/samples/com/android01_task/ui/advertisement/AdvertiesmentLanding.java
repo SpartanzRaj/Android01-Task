@@ -3,6 +3,7 @@ package samples.com.android01_task.ui.advertisement;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -23,9 +24,8 @@ public class AdvertiesmentLanding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertiment_landing);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.app_logo);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         landingPage = (WebView)findViewById(R.id.webview);
         landingPage.getSettings().setJavaScriptEnabled(true);
@@ -46,5 +46,16 @@ public class AdvertiesmentLanding extends AppCompatActivity {
         super.onResume();
         ProgressView.showProgress(this);
         landingPage.loadUrl("https://courses.learncodeonline.in");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home)
+        {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

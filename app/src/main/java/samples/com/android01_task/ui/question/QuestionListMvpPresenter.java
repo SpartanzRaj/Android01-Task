@@ -1,5 +1,9 @@
 package samples.com.android01_task.ui.question;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +30,13 @@ public class QuestionListMvpPresenter implements IQuestionListMvpPresenter {
      If the response is not successfull, onError() is called with error message
      **/
     @Override
-    public void startLoadRemoteData() {
+    public void startLoadRemoteData(final Context context) {
 
+        if (!checkNetworkIsConnection(context))
+        {
+            questionListMvpView.onError(context.getString(R.string.network_connection));
+            return;
+        }
         ApiEndPoints endPoints = ApiClient.getRetrofitClient().create(ApiEndPoints.class);
         Call<QuestionResponse> questionResponseCall = endPoints.getQuestionList();
         questionResponseCall.enqueue(new Callback<QuestionResponse>() {
@@ -43,9 +52,16 @@ public class QuestionListMvpPresenter implements IQuestionListMvpPresenter {
             @Override
             public void onFailure(Call<QuestionResponse> call, Throwable t) {
 
-                questionListMvpView.onError(t.getMessage());
+                questionListMvpView.onError(context.getString(R.string.error_msg));
             }
         });
+    }
+
+
+    private boolean checkNetworkIsConnection(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return (netInfo != null && netInfo.isConnected());
     }
 
     /**
@@ -57,7 +73,7 @@ public class QuestionListMvpPresenter implements IQuestionListMvpPresenter {
         ArrayList<Object> editedData = new ArrayList<>();
         for (int i=0;i<data.size();i++)
         {
-            if (i%3==0)
+            if (editedData.size()%3==0&& i!=0)
             {
                 editedData.add(R.drawable.banner_add_src);
                 editedData.add(data.get(i));
@@ -66,8 +82,11 @@ public class QuestionListMvpPresenter implements IQuestionListMvpPresenter {
             {
                 editedData.add(data.get(i));
             }
+
         }
 
+        //editedData.add(R.drawable.banner_add_src);
         return editedData;
     }
+
 }

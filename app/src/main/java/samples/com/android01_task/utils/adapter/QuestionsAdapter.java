@@ -18,7 +18,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private List<Object> questionData;
     private Context activityContext;
-     int DATA=0,ADVERTISEMENT=1;
+    int DATA=0,ADVERTISEMENT=1;
     public QuestionsAdapter(List<Object> questionData, Context context) {
         this.questionData = questionData;
         activityContext=context;
